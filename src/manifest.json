@@ -5,10 +5,11 @@
   "description": "Allows you to see comments from related crashes without having to click on the related crash.",
   "version": "1.0.2",
   "content_scripts": [
-  {
-    "matches": ["https://fabric.io/*"],
-    "js": ["arrive.js", "script.js"],
-    "run_at": "document_end"
-  }
-]
+    {
+      "matches": ["https://fabric.io/*"],
+      "js": ["arrive.js", "script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": ["script.js.map"]
 }

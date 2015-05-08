@@ -1,9 +1,6 @@
 var gulp = require('gulp');
 var del = require('del');
 var browserify = require('browserify');
-var watchify = require('watchify');
-var gutil = require('gulp-util');
-var uglify = require('gulp-uglify');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
@@ -39,6 +36,8 @@ gulp.task('js', ['copyDependencies'], function() {
     return b.bundle()
         .pipe(source(config.out))
         .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.dest));
 });
 
