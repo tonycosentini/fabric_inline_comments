@@ -67,7 +67,7 @@ var AppDataFetcher = new function() {
       }, function(error, response, body) {
         for (var i in response.body) {
           var app = response.body[i];
-          if (app.bundle_identifier == appIdString) {
+          if (app.bundle_identifier.toLowerCase() == appIdString) {
             appId = app.id;
             notifyListeners();
             break;
